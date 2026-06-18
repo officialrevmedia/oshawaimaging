@@ -66,7 +66,8 @@ If you use a custom domain (`www.oshawaadvanceimaging.ca`), add it under **Setti
     ├── css/styles.css                  Full design system (single stylesheet)
     ├── js/main.js                      Nav, scroll reveal, counters, form handling
     ├── img/
-    │   ├── hero-scan.svg               Animated hero illustration
+    │   ├── (19 photographs)            Real clinic and imaging photography (hero, reception, ultrasound, X-ray, etc.)
+    │   ├── hero-scan.svg               Animated scan motif (retained for accents)
     │   └── og-image.jpg                Social share image (Open Graph / Twitter)
     ├── logo.png                        Primary logo (transparent)
     ├── logo-white-bg.png               Logo on white background
@@ -99,15 +100,15 @@ This information is used across the site. If any of it changes, update it everyw
 - Structured data (JSON-LD): `MedicalClinic` / `LocalBusiness` with address, geo, hours and services on the home page; `FAQPage` on the home, FAQ and service pages; `BreadcrumbList` on inner pages.
 - `sitemap.xml` and `robots.txt`.
 - Semantic HTML, descriptive alt text, and mobile-first responsive layout.
-- Self-contained SVG imagery for fast loading and strong Core Web Vitals.
+- Real, web-optimized photography (compressed baseline JPEGs) plus lightweight SVG accents for fast loading and strong Core Web Vitals.
 
 ---
 
 ## Customisation notes
 
-**Adding real photography.** The site uses custom SVG illustrations so it looks complete with no external image dependencies. To use real clinic photos, drop them into `assets/img/` and swap the relevant `<img>`/illustration in the page. Recommended additions: a hero photo, a clinic interior, and a team or reception photo.
+**Photography.** The site ships with real clinic and imaging photography throughout (hero, reception, ultrasound, X-ray, musculoskeletal and more), all in `assets/img/` as web-optimized baseline JPEGs. To swap any image, replace the file in `assets/img/` (keep the same filename) or update the `src` on the relevant `<img>`.
 
-**The contact form.** `contact.html` and the home page include an appointment-request form. It is currently front-end only - on submit it shows a confirmation message and does not send email. To make it deliver messages, connect it to a form backend (for example Formspree, Netlify Forms, or a small server endpoint) by setting the form's `action`/`method` or wiring it to your provider. See `assets/js/main.js` (the `#contactForm` handler).
+**The contact form.** `contact.html` and the home page include an appointment-request form. On submit, it opens the visitor's email app with a message to info@oshawaadvanceimaging.ca, pre-filled with their name, phone, email, requested service, preferred date, and message, ready to send. This requires no backend and works on any static host. If you later prefer the form to submit silently to a backend (for example Formspree, Netlify Forms, or your own endpoint), update the `#contactForm` handler in `assets/js/main.js`.
 
 **The map.** The contact page and home page embed a Google Maps view of the address. No API key is required for the basic embed used here.
 

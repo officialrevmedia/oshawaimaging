@@ -89,17 +89,51 @@
     });
   });
 
-  // ---- Contact form (front-end only; no backend) ----
+  // ---- Contact form: opens a prefilled email to the clinic ----
   var form = document.querySelector("#contactForm");
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      var get = function (name) {
+        var el = form.querySelector('[name="' + name + '"]');
+        return el ? (el.value || "").trim() : "";
+      };
+      var fullName = (get("firstName") + " " + get("lastName")).trim();
+      var service = get("service");
+      var date = get("date");
+      var phone = get("phone");
+      var email = get("email");
+      var message = get("message");
+
+      var subjectBits = ["Appointment Request"];
+      if (fullName) subjectBits.push(fullName);
+      if (service) subjectBits.push(service);
+
+      var body = [
+        "New appointment request from the website:",
+        "",
+        "Name: " + (fullName || "(not provided)"),
+        "Phone: " + (phone || "(not provided)"),
+        "Email: " + (email || "(not provided)"),
+        "Preferred service: " + (service || "(not specified)"),
+        "Preferred date: " + (date || "(not specified)"),
+        "",
+        "Message:",
+        (message || "(none)"),
+        "",
+        "Please contact me to confirm my appointment. Thank you."
+      ].join("\r\n");
+
+      var mailto = "mailto:info@oshawaadvanceimaging.ca"
+        + "?subject=" + encodeURIComponent(subjectBits.join(" - "))
+        + "&body=" + encodeURIComponent(body);
+
       var status = document.querySelector("#formStatus");
       if (status) {
         status.hidden = false;
-        status.textContent = "Thank you. Your request has been prepared - please call +1 (905) 215-1815 to confirm your appointment, or we will contact you shortly.";
+        status.innerHTML = 'Your email is opening now. If nothing happens, email us directly at <a href="mailto:info@oshawaadvanceimaging.ca">info@oshawaadvanceimaging.ca</a> or call <a href="tel:+19052151815">+1 (905) 215-1815</a>.';
       }
-      form.reset();
+      window.location.href = mailto;
     });
   }
 
