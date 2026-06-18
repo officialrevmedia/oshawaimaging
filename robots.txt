@@ -1,0 +1,5 @@
+# robots.txt for Oshawa Advance Imaging
+User-agent: *
+Allow: /
+
+Sitemap: https://www.oshawaadvanceimaging.ca/sitemap.xml
