@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" role="img" aria-label="Diagnostic ultrasound scan illustration">
+  <defs>
+    <radialGradient id="scanGlow" cx="50%" cy="100%" r="90%">
+      <stop offset="0%" stop-color="#1FA0CF" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#106FB6" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0E2A5E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="probeBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16356A"/>
+      <stop offset="100%" stop-color="#0B1F45"/>
+    </linearGradient>
+    <linearGradient id="arcA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1FA0CF"/>
+      <stop offset="100%" stop-color="#106FB6"/>
+    </linearGradient>
+    <clipPath id="fanClip">
+      <path d="M400 150 L640 560 A280 280 0 0 1 160 560 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- ambient backdrop -->
+  <rect width="800" height="600" fill="#0B1F45"/>
+  <rect width="800" height="600" fill="url(#scanGlow)"/>
+
+  <!-- scan fan -->
+  <g clip-path="url(#fanClip)">
+    <rect x="120" y="140" width="560" height="440" fill="#0E2A5E"/>
+    <!-- depth arcs -->
+    <g stroke="#1FA0CF" fill="none" opacity="0.5">
+      <path d="M180 560 A220 220 0 0 1 620 560" stroke-width="1.4" opacity="0.30"/>
+      <path d="M230 560 A170 170 0 0 1 570 560" stroke-width="1.4" opacity="0.36"/>
+      <path d="M280 560 A120 120 0 0 1 520 560" stroke-width="1.4" opacity="0.44"/>
+      <path d="M330 560 A70 70 0 0 1 470 560" stroke-width="1.4" opacity="0.55"/>
+    </g>
+    <!-- tissue speckle -->
+    <g fill="#7FD2EC">
+      <circle cx="360" cy="430" r="2.5" opacity="0.55"/>
+      <circle cx="430" cy="470" r="2" opacity="0.45"/>
+      <circle cx="395" cy="500" r="3" opacity="0.6"/>
+      <circle cx="320" cy="490" r="1.8" opacity="0.4"/>
+      <circle cx="470" cy="430" r="2.2" opacity="0.5"/>
+      <circle cx="345" cy="380" r="1.6" opacity="0.35"/>
+      <circle cx="420" cy="400" r="2" opacity="0.42"/>
+      <circle cx="300" cy="540" r="2.4" opacity="0.5"/>
+      <circle cx="500" cy="500" r="2" opacity="0.4"/>
+      <circle cx="380" cy="455" r="1.5" opacity="0.3"/>
+    </g>
+    <!-- a soft "structure" being imaged -->
+    <ellipse cx="400" cy="455" rx="62" ry="46" fill="#1FA0CF" opacity="0.18"/>
+    <ellipse cx="400" cy="455" rx="40" ry="30" fill="#1FA0CF" opacity="0.16"/>
+    <ellipse cx="400" cy="455" rx="20" ry="15" fill="#7FD2EC" opacity="0.30"/>
+    <!-- animated sweep line -->
+    <g>
+      <line x1="400" y1="150" x2="400" y2="560" stroke="#9FE0F4" stroke-width="2.5" opacity="0.85">
+        <animateTransform attributeName="transform" type="rotate"
+          from="-40 400 150" to="40 400 150" dur="3.6s"
+          repeatCount="indefinite" calcMode="spline"
+          keyTimes="0;0.5;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
+          values="-40 400 150;40 400 150;-40 400 150"/>
+      </line>
+    </g>
+  </g>
+
+  <!-- fan outline -->
+  <path d="M400 150 L640 560 A280 280 0 0 1 160 560 Z" stroke="#2C5C9E" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+  <!-- probe -->
+  <g>
+    <rect x="372" y="70" width="56" height="70" rx="14" fill="url(#probeBody)"/>
+    <rect x="384" y="78" width="32" height="8" rx="4" fill="#2C5C9E" opacity="0.8"/>
+    <rect x="386" y="132" width="28" height="20" rx="3" fill="#9FE0F4"/>
+    <rect x="389" y="135" width="22" height="14" rx="2" fill="#1FA0CF"/>
+  </g>
+
+  <!-- OA-style sweep accent echoing the logo -->
+  <path d="M150 250 Q330 210 470 252" stroke="url(#arcA)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="470" cy="252" r="4" fill="#1FA0CF"/>
+</svg>
