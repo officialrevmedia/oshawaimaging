@@ -1,8 +1,8 @@
 {
   "name": "Oshawa Advance Imaging",
   "short_name": "OA Imaging",
-  "description": "Ultrasound and X-ray diagnostic imaging clinic in Oshawa, Ontario.",
-  "start_url": "/",
+  "description": "Ultrasound diagnostic imaging clinic in Oshawa, Ontario.",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0E2A5E",
