@@ -1,5 +1,7 @@
-# robots.txt for Oshawa Advance Imaging
 User-agent: *
 Allow: /
 
-Sitemap: https://www.oshawaadvanceimaging.ca/sitemap.xml
+# Block nothing important; allow all crawlers full access.
+Disallow: /cgi-bin/
+
+Sitemap: https://oshawaadvanceimaging.ca/sitemap.xml
