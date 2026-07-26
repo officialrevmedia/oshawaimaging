@@ -131,10 +131,59 @@
       var status = document.querySelector("#formStatus");
       if (status) {
         status.hidden = false;
-        status.innerHTML = 'Your email is opening now. If nothing happens, email us directly at <a href="mailto:info@oshawaadvanceimaging.ca">info@oshawaadvanceimaging.ca</a> or call <a href="tel:+19052151815">+1 (905) 215-1815</a>.';
+        status.innerHTML = 'Your email is opening now. If nothing happens, email us directly at <a href="mailto:info@oshawaadvanceimaging.ca">info@oshawaadvanceimaging.ca</a> or call <a href="tel:+12894810263">+1 (289) 481-0263</a>.';
       }
       window.location.href = mailto;
     });
+  }
+
+  // ---- Article reading progress ----
+  var articleBody = document.querySelector(".article-body");
+  var bar = document.querySelector(".read-progress");
+  if (articleBody && bar) {
+    var updateBar = function () {
+      var rect = articleBody.getBoundingClientRect();
+      var total = rect.height - window.innerHeight;
+      var pct = total > 0 ? ((-rect.top) / total) * 100 : (rect.top <= 0 ? 100 : 0);
+      bar.style.width = Math.min(100, Math.max(0, pct)) + "%";
+    };
+    updateBar();
+    window.addEventListener("scroll", updateBar, { passive: true });
+    window.addEventListener("resize", updateBar, { passive: true });
+  }
+
+  // ---- Table of contents: collapsed on mobile, always open on desktop ----
+  var tocToggle = document.querySelector(".toc-toggle");
+  if (tocToggle) {
+    var wide = window.matchMedia("(min-width: 1001px)");
+    var syncToc = function () { tocToggle.open = wide.matches; };
+    syncToc();
+    if (wide.addEventListener) wide.addEventListener("change", syncToc);
+    else if (wide.addListener) wide.addListener(syncToc);
+  }
+
+  // ---- Table of contents scrollspy ----
+  var tocLinks = document.querySelectorAll(".toc-card a[href^='#']");
+  if (tocLinks.length && "IntersectionObserver" in window) {
+    var map = {};
+    var targets = [];
+    tocLinks.forEach(function (link) {
+      var id = link.getAttribute("href").slice(1);
+      var el = document.getElementById(id);
+      if (el) { map[id] = link; targets.push(el); }
+    });
+    var setActive = function (id) {
+      tocLinks.forEach(function (l) { l.classList.remove("active"); });
+      if (map[id]) map[id].classList.add("active");
+    };
+    var spy = new IntersectionObserver(function (entries) {
+      var visible = entries.filter(function (e) { return e.isIntersecting; });
+      if (visible.length) {
+        visible.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+        setActive(visible[0].target.id);
+      }
+    }, { rootMargin: "-90px 0px -65% 0px", threshold: 0 });
+    targets.forEach(function (t) { spy.observe(t); });
   }
 
   // ---- Footer year ----

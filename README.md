@@ -123,3 +123,42 @@ Works in all modern browsers (Chrome, Edge, Firefox, Safari) on desktop and mobi
 ---
 
 © Oshawa Advance Imaging. All rights reserved.
+
+---
+
+## Changelog - 26 July 2026
+
+**Requisition form replaced.** `forms/Ultrasound_Requisition_Form.pdf` now holds the updated 2026 version.
+The filename was intentionally kept the same so all 10 existing download links across the site continue to
+work with no markup changes. The download card on `patient-forms.html` now notes the form was updated for 2026.
+
+**Blog added.** Three new pages:
+
+| File | Purpose |
+| --- | --- |
+| `blog.html` | Article index |
+| `what-to-expect-ultrasound-appointment-oshawa.html` | Patient guide, published 14 Jul 2026 |
+| `musculoskeletal-ultrasound-shoulder-wrist-knee-pain.html` | MSK explainer, published 22 Jul 2026 |
+
+A "Blog" link was added to the desktop nav, mobile nav, and footer on every page. The desktop nav collapse
+breakpoint moved from 1200px to 1300px so the seventh nav item does not overflow the header.
+
+**Adding a future post.** Copy an existing article file, then update: `<title>`, meta description, canonical,
+OG/Twitter tags, the three JSON-LD blocks (BlogPosting, BreadcrumbList, FAQPage), the `<h1>`, the article
+`<time>` and read time, the TOC list, and the body. Then add a card to `blog.html`, add a card to the
+`#blog` section on `index.html`, and add a `<url>` entry to `sitemap.xml`.
+
+**Article components available** (see the BLOG section at the end of `assets/css/styles.css`):
+`.key-points` TL;DR box, `.table-wrap` + `.data-table` responsive tables, `.steps` numbered timeline,
+`.pathway` flow diagram, `.note` callout, `.toc-card` sticky contents, `.post-card` index cards,
+`.read-progress` scroll bar.
+
+**Two pre-existing bugs fixed.**
+- `assets/js/main.js` showed a stale phone number (905-215-1815) in the booking form fallback message.
+  Corrected to +1 (289) 481-0263.
+- `musculoskeletal-ultrasound.html` had a "Related Services" link pointing at itself and an empty third
+  slot. Both replaced with links to the new articles.
+
+**Internal linking.** The new posts are linked from the homepage, `patient-preparation.html`, `faq.html`,
+`patient-forms.html`, `referring-physicians.html`, and `musculoskeletal-ultrasound.html`, so neither
+article is an orphan page.
