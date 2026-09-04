@@ -56,12 +56,8 @@ If you use a custom domain (`www.oshawaadvanceimaging.ca`), add it under **Setti
 ├── sitemap.xml                         XML sitemap (all pages)
 ├── robots.txt                          Crawler directives + sitemap link
 ├── site.webmanifest                    PWA / installable web app manifest
-├── forms/                              The 5 clinic PDF forms (linked from the site)
-│   ├── Ultrasound_Requisition_Form.pdf
-│   ├── Consent_Transvaginal_Transrectal_Ultrasound.pdf
-│   ├── Kidney_Bladder_Ultrasound_Worksheet.pdf
-│   ├── Soft_Tissue_Ultrasound_Worksheet.pdf
-│   └── Wrist_Ultrasound_Worksheet.pdf
+├── forms/                              Clinic PDF form (linked from the site)
+│   └── Ultrasound_Requisition_Form.pdf
 └── assets/
     ├── css/styles.css                  Full design system (single stylesheet)
     ├── js/main.js                      Nav, scroll reveal, counters, form handling
@@ -126,11 +122,20 @@ Works in all modern browsers (Chrome, Edge, Firefox, Safari) on desktop and mobi
 
 ---
 
+## Changelog - 4 September 2026
+
+**Public forms reduced to the Ultrasound Requisition only.** The Consent (Transvaginal/Transrectal),
+Kidney & Bladder, Soft Tissue, and Wrist Ultrasound worksheet PDFs were removed from `forms/`, and their
+download cards were removed from `patient-forms.html` and the homepage forms section. The
+"Updated 2026 / discard earlier copies" note on the requisition card was also removed. References to the
+consent form on `abdominal-pelvic-ultrasound.html` (including its FAQ schema) were reworded accordingly.
+Page meta descriptions for `patient-forms.html` were updated to match.
+
 ## Changelog - 26 July 2026
 
 **Requisition form replaced.** `forms/Ultrasound_Requisition_Form.pdf` now holds the updated 2026 version.
 The filename was intentionally kept the same so all 10 existing download links across the site continue to
-work with no markup changes. The download card on `patient-forms.html` now notes the form was updated for 2026.
+work with no markup changes.
 
 **Blog added.** Three new pages:
 
