@@ -167,3 +167,14 @@ OG/Twitter tags, the three JSON-LD blocks (BlogPosting, BreadcrumbList, FAQPage)
 **Internal linking.** The new posts are linked from the homepage, `patient-preparation.html`, `faq.html`,
 `patient-forms.html`, `referring-physicians.html`, and `musculoskeletal-ultrasound.html`, so neither
 article is an orphan page.
+
+---
+
+## Changelog - 12 November 2026
+
+Two new articles: `thyroid-ultrasound-neck-lumps-oshawa.html` (12 Nov 2026) and
+`pelvic-ultrasound-oshawa-what-to-expect.html` (13 Nov 2026). Both are linked from the blog index, the homepage
+blog section, `sitemap.xml`, and from `ultrasound.html`, `abdominal-pelvic-ultrasound.html` and
+`patient-preparation.html` so they are not orphan pages.
+
+Meta descriptions on 13 pages were shortened to 160 characters or fewer so Google shows them in full.
